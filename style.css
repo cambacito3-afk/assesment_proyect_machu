@@ -1,0 +1,342 @@
+:root {
+    --bg-1: #0f2027;
+    --bg-2: #203a43;
+    --bg-3: #2c5364;
+    --accent: #f0a500;
+    --soft: #f7efe5;
+    --text: #e9f2f5;
+    --muted: rgba(233, 242, 245, 0.7);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    color: var(--text);
+    background: linear-gradient(135deg, var(--bg-1), var(--bg-2), var(--bg-3));
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── HEADER & NAV ── */
+header {
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(10px);
+    background: rgba(15, 32, 39, 0.8);
+    border-bottom: 1px solid rgba(240, 165, 0, 0.2);
+    z-index: 10;
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 14px 20px;
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+nav .brand {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    letter-spacing: 0.5px;
+    font-size: 4rem;
+    color: var(--soft);
+}
+
+nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+    padding: 8px 10px;
+    border-radius: 10px;
+    transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+nav a:hover {
+    color: var(--soft);
+    background: rgba(240, 165, 0, 0.12);
+    transform: translateY(-1px);
+}
+
+/* ── SECTION NAV ── */
+.section-nav {
+    border-top: 1px solid #DEDAD4;
+    border-bottom: 1px solid #DEDAD4;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    height: 32px;
+    background: #FFFFFF;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.section-nav::-webkit-scrollbar {
+    display: none;
+}
+
+.section-nav a {
+    font-size: 8px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #888580;
+    text-decoration: none;
+    padding: 0 14px 0 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    border-right: 1px solid #DEDAD4;
+    margin-right: 14px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    flex: 0 0 auto;
+}
+
+/* ── HERO ── */
+.hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero.mural {
+    position: relative;
+    overflow: hidden;
+    min-height: 50vh;
+    width: 100%;
+    display: grid;
+    align-items: end;
+    color: var(--soft);
+}
+
+.hero.mural > div {
+    position: relative;
+    z-index: 1;
+    padding: 60px 24px;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.hero.mural > div.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hero h1 {
+    margin: 0 0 10px;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: clamp(2.4rem, 6vw, 3.2rem);
+    color: var(--soft);
+    line-height: 1.1;
+    text-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+.hero p {
+    max-width: 420px;
+    margin: 0 0 18px;
+    font-size: 1.05rem;
+    color: var(--muted);
+}
+
+/* ── BUTTONS ── */
+.cta-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(240, 165, 0, 0.45);
+    text-decoration: none;
+    color: var(--soft);
+    font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    border-color: rgba(240, 165, 0, 0.7);
+}
+
+/* ── MAIN SECTIONS ── */
+main {
+    flex: 1;
+}
+
+section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px 20px;
+}
+
+section h2 {
+    margin: 0 0 6px;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    color: var(--soft);
+    letter-spacing: 0.4px;
+}
+
+section h2 em {
+    font-style: italic;
+    color: var(--accent);
+}
+
+.section-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 6px;
+}
+
+section p {
+    margin: 0 0 18px;
+    color: var(--muted);
+    max-width: 720px;
+    line-height: 1.7;
+}
+
+section p.es {
+    font-style: italic;
+    color: rgba(233, 242, 245, 0.5);
+    font-size: 0.92rem;
+    margin-top: -10px;
+}
+
+/* ── CARDS ── */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 16px;
+}
+
+.card {
+    padding: 18px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(233, 242, 245, 0.08);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(240, 165, 0, 0.4);
+}
+
+.card h3 {
+    margin: 0 0 8px;
+    font-size: 1.05rem;
+    color: var(--soft);
+}
+
+.card span {
+    display: inline-block;
+    margin-bottom: 8px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    background: rgba(240, 165, 0, 0.15);
+    color: var(--soft);
+}
+
+.card ul {
+    margin: 0;
+    padding-left: 18px;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+/* ── DIVIDER ── */
+.divider {
+    max-width: 1100px;
+    margin: 10px auto;
+    border: none;
+    border-top: 1px solid rgba(233, 242, 245, 0.1);
+}
+
+/* ── FOOTER ── */
+footer {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 26px 20px 40px;
+    color: var(--muted);
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+    .hero.mural {
+        min-height: 100px;
+        height: auto;
+    }
+
+    .bg-video {
+        position: relative;
+        width: 180px;
+        height: auto;
+        top: auto;
+        left: auto;
+        transform: none;
+        display: block;
+        margin: 0 auto;
+        object-fit: contain;
+    }
+
+    nav {
+        padding: 8px 12px;
+        gap: 4px;
+        flex-wrap: wrap;
+    }
+
+    nav .brand {
+        font-size: 1.2rem;
+    }
+
+    nav .links {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 2px;
+    }
+
+    nav .links a {
+        font-size: 0.7rem;
+        padding: 4px 6px;
+    }
+
+    video::-webkit-media-controls {
+        display: none !important;
+    }
+
+    video::-webkit-media-controls-play-button {
+        display: none !important;
+    }
+
+    .hero {
+        padding-top: 100px;
+    }
+}
